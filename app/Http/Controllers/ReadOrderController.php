@@ -15,6 +15,7 @@ class ReadOrderController extends Controller
      */
     public function index()
     {
+        //jika ingin mengambil data berdasarkan hari ini saja maka tinggal diganti subday(1)
         $order = Orders::where('created_at','>=', Carbon::now()->subdays(2))->paginate(10);
 
         return view('readOrder.index', compact('order'));
